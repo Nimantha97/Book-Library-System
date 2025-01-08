@@ -2,11 +2,11 @@ package com.booklibrary.dto;
 
 import lombok.Data;
 import lombok.AllArgsConstructor;
-import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
 public class AvailabilityResponse {
     private boolean available;
-    private LocalDate nextAvailableDate;
+    private List<DateRange> availableDateRanges;
 }

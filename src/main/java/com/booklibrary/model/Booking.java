@@ -32,4 +32,6 @@ public class Booking {
     private LocalDate endDate;
 
     private String userDetails;
+
+
 }

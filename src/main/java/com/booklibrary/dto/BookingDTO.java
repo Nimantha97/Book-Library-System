@@ -14,6 +14,7 @@ public class BookingDTO {
     @NotNull(message = "Book IDis required")
     private Long bookId;
 
+
     private LocalDate startDate;
 
     @NotNull(message = "End date is required")

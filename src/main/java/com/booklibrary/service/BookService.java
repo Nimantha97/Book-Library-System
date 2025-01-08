@@ -9,6 +9,7 @@ import com.booklibrary.repository.BookRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -33,11 +34,16 @@ public class BookService {
         return mapToDTO(savedBook);
     }
 
+
     public List<BookDTO> getAllBooks() {
-        return bookRepository.findAll()
-                .stream()
-                .map(this::mapToDTO)
-                .collect(Collectors.toList());
+        List<Book> books = bookRepository.findAll();
+        List<BookDTO> bookDTOs = new ArrayList<>();
+
+        for (Book book : books) {
+            bookDTOs.add(mapToDTO(book));
+        }
+
+        return bookDTOs;
     }
 
     public BookDTO getBookById(Long id) {
